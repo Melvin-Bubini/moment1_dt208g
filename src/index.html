@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurser</title>
+    <link rel="shortcut icon" href="./pictures/favicon.ico" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="./scss/main.scss"> -->
+    <script src="/dest/js/index.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <a href="index.html"><img id="logo" src="pictures/standardLogo.svg" alt="Logga"></a>
+        <a id="logo-text" href="index.html">
+            <h1>Kurser för Webbutveckling</h1>
+        </a>
+    </header>
+
+    <main>
+        <h1>Lägg till kurser</h1>
+        <form id="course_form">
+            <label for="input_code">Kurskod</label>
+            <input type="text" class="search-input" id="input_code" placeholder="Skriv kurskod" >
+            <br>
+            <label for="input_name">Kursnamn</label>
+            <input type="text" class="search-input" id="input_name" placeholder="Skriv kursnamn" >
+            <br>
+            <label for="radio">Progression:</label>
+            <input type="radio" class="radio-input" id="input_A" value="A">
+            <label for="input_A">A</label>
+            <input type="radio" class="radio-input" id="input_B" value="B">
+            <label for="input_B">B</label>
+            <input type="radio" class="radio-input" id="input_C" value="C">
+            <label for="input_C">C</label><br>
+
+            <button id="subBtn" type="submit">Lägg till</button>
+            <button id="deleteBtn" type="reset">Rensa</button>
+        </form>
+
+        <div id="courseDetails">
+            <h1>Kurser</h1>
+            <ul id="courseDetailsUl">
+                <li>DT057G, Webbutveckling 1, A, <a href="https://www.miun.se/utbildning/program/webbutveckling/">Kursplanen</a></li>
+                <li>DT084G, Introduktion till programmering i JavaScript, A, <a href="https://www.miun.se/utbildning/program/webbutveckling/">Kursplanen</a></li>
+                <li>DT200G, Grafisk teknik för webb, A, <a href="https://www.miun.se/utbildning/program/webbutveckling/">Kursplanen</a></li>
+                <li>DT068G, Webbanvändbarhet, B, <a href="https://www.miun.se/utbildning/program/webbutveckling/">Kursplanen</a></li>
+                <li>DT003G, Databaser, A, <a href="https://www.miun.se/utbildning/program/webbutveckling/">Kursplanen</a></li>
+                <li>DT211G, Frontend-baserad webbutveckling, B, <a href="https://www.miun.se/utbildning/program/webbutveckling/">Kursplanen</a></li>
+                <li>DT207G, Backend-baserad webbutveckling, B, <a href="https://www.miun.se/utbildning/program/webbutveckling/">Kursplanen</a></li>
+                <li>DT208G, Programmering i typescript, B, <a href="https://www.miun.se/utbildning/program/webbutveckling/">Kursplanen</a></li>
+            </ul>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>@Melvin Bubini, 2024</p>
+    </footer>
+    
+</body>
+</html>
