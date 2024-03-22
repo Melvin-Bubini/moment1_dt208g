@@ -1,0 +1,123 @@
+@use 'base';
+
+//Body
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0%;
+    margin: 0%;
+    overflow-x: hidden;
+    line-height: base.$line-height;
+
+}
+
+
+// Header
+header {
+    display: flex;
+    align-items: center;
+    background-color: base.$main-color;
+}
+
+#logo {
+    width: 5em;
+}
+
+#logo-text {
+    color: base.$text-color;
+    width: fit-content;
+    text-decoration: none;
+    margin-left: 1em;
+    width: 15%;
+}
+
+
+// Main
+
+main {
+    @include base.center-element;
+}
+
+
+
+// Footer
+footer {
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin-top: 2em;
+    background-color: base.$main-color;
+}
+
+footer p {
+    width: fit-content;
+    margin-left: 2em;
+    font-weight: 600;
+    margin-top: 1em;
+    @include base.p-styles;
+}
+
+
+// FÄRGSCHEMAN
+
+@media (prefers-color-scheme: light) {
+
+    header,
+    footer,
+    nav,
+    .menu-btn {
+        background-color: base.$main-color;
+    }
+
+    body {
+        background-color: base.$background-color;
+    }
+
+    p,
+    h1,
+    h2,
+    li,
+    ul,
+    .courseplan:hover,
+    span,
+    label,
+    .formRubrik {
+        color: base.$text-color;
+    }
+
+    .courseplan {
+        color: base.$link-color;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+
+    header,
+    footer,
+    nav,
+    .menu-btn {
+        background-color: base.$main-color-dark;
+    }
+
+    body {
+        background-color: base.$background-color-dark;
+    }
+
+    p,
+    h1,
+    h2,
+    li,
+    ul,
+    .courseplan:hover,
+    span,
+    label,
+    .formRubrik {
+        color: base.$text-color-dark;
+    }
+
+    .courseplan {
+        color: base.$link-color;
+    }
+
+}
