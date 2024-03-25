@@ -73,11 +73,10 @@ course_form.addEventListener("submit", function (event) {
     event.preventDefault();
     // Hämta värden från formuläret
     const codeInput = document.getElementById("input_code").value;
-    const nameInput = document.getElementById("input_name").value; // lägga till : String
+    const nameInput = document.getElementById("input_name").value;
     const progressionInput = document.getElementById("select_input").value;
     const syllabusInput = document.getElementById("input_url").value;
-    // Notering: här borde inputvalidering läggas till
-    // Skapa ett användarobjekt
+    // Skapa ett objekt
     const newCourse = {
         code: codeInput,
         name: nameInput,
@@ -92,7 +91,7 @@ course_form.addEventListener("submit", function (event) {
     }
     saveCourseToLocalStorage(newCourse); //anropar funktionen för att spara kursen i localstorage
     course_form.reset(); //nollställer formuläret
-    // Använd printUserDetails för att skriva ut användardetaljer
+    // Använder addCourse 
     addCourse(newCourse);
 });
 // Funktion för att spara kursen i localStorage
