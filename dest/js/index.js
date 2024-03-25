@@ -61,7 +61,10 @@ function updateCourseList(courses) {
 }
 // Funktion för att kontrollera om en kurskod redan existerar i listan
 function isCourseCodeUnique(code, courseDetailsUl) {
-    return !courseDetailsUl.some(course => course.code === code);
+    // Konverterar inmatad kurskod till antingen alla små bokstäver eller alla stora bokstäver
+    const normalizedCode = code.toUpperCase();
+    // Jämför den normaliserade kurskoden med kurskoderna i listan, även de normaliserade
+    return !courseDetailsUl.some(course => course.code.toUpperCase() === normalizedCode);
 }
 // Hämta DOM-element för formulär och användardetaljer
 const course_form = document.getElementById("course_form");

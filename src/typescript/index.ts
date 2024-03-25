@@ -29,7 +29,7 @@ window.addEventListener("load", () => {
 
 
 //rensar listan på sidan och localstorage vid klick på knappen "Rensa"
-const courseDetailsUl = document.getElementById("courseDetailsUl");
+const courseDetailsUl = document.getElementById("courseDetailsUl") as HTMLUListElement;
 const deleteBtn: HTMLButtonElement | null = document.getElementById("deleteBtn") as HTMLButtonElement | null;
 if (deleteBtn) {
     deleteBtn.addEventListener("click", () => {
@@ -40,9 +40,11 @@ if (deleteBtn) {
     });
 }
 
+
+
 // lägger till en kurs
 function addCourse(course: Courseinfo): void {
-    const courseDetailsUl = document.getElementById("courseDetailsUl");
+    const courseDetailsUl = document.getElementById("courseDetailsUl") as HTMLUListElement;
     if (courseDetailsUl) {
 
         // skapar ett list element och ger den ett id
@@ -81,7 +83,12 @@ function updateCourseList(courses: Courseinfo[]): void {
 
 // Funktion för att kontrollera om en kurskod redan existerar i listan
 function isCourseCodeUnique(code: string, courseDetailsUl: Courseinfo[]): boolean {
-    return !courseDetailsUl.some(course => course.code === code);
+
+   // Konverterar inmatad kurskod till antingen alla små bokstäver eller alla stora bokstäver
+   const normalizedCode = code.toUpperCase();
+
+   // Jämför den normaliserade kurskoden med kurskoderna i listan, även de normaliserade
+   return !courseDetailsUl.some(course => course.code.toUpperCase() === normalizedCode);
 }
 
 
@@ -95,14 +102,13 @@ course_form.addEventListener("submit", function (event: Event) {
 
     // Hämta värden från formuläret
     const codeInput : string = (document.getElementById("input_code") as HTMLInputElement).value;
-    const nameInput : string = (document.getElementById("input_name") as HTMLInputElement).value; // lägga till : String
+    const nameInput : string = (document.getElementById("input_name") as HTMLInputElement).value; 
     const progressionInput : string = (document.getElementById("select_input") as HTMLInputElement).value;
     const syllabusInput : string = (document.getElementById("input_url") as HTMLInputElement).value;
 
-    // Notering: här borde inputvalidering läggas till
 
 
-    // Skapa ett användarobjekt
+    // Skapa ett objekt
     const newCourse: Courseinfo = {
         code: codeInput,
         name: nameInput,
@@ -120,7 +126,7 @@ course_form.addEventListener("submit", function (event: Event) {
     saveCourseToLocalStorage(newCourse);//anropar funktionen för att spara kursen i localstorage
     course_form.reset();//nollställer formuläret
 
-    // Använd printUserDetails för att skriva ut användardetaljer
+    // Använder addCourse 
     addCourse(newCourse);
 });
 
@@ -133,11 +139,12 @@ function saveCourseToLocalStorage(course: Courseinfo): void {
 }
 
 
+
 // Redigering av kurser
 
 function editCourse(course: Courseinfo): void {
     // tar bort tidigare redigeringsformulär för samma kurs
-    const existingEditForm = document.getElementById(`courseEditForm-${course.code}`);
+    const existingEditForm = document.getElementById(`courseEditForm-${course.code}`) as HTMLFormElement;
     if (existingEditForm) {
         existingEditForm.remove();
     }
